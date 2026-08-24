@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+    :root{
+      --bg:#0B0B0D; --surface:#151519; --surface2:#1E1E24; --line:rgba(255,255,255,.07);
+      --tx:#ECECEA; --dim:#9A9AA2; --faint:#63636B;
+      --gold:#CBA35A; --teal:#5FB0A5; --amber:#DB965A; --red:#D26A60;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+    .disp{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif}
+    a{color:var(--gold)} a:hover{color:#dcb877}
+    .screen{width:390px;min-height:900px;position:relative;
+      background:radial-gradient(130% 50% at 50% -6%, #18181E 0%, #0B0B0D 50%);padding:24px 20px 40px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+  </style>
+</helmet>
+<div class="screen">
+
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--dim)" stroke-width="1.9"><path d="M15 5l-7 7 7 7"/></svg>
+    <div class="disp" style="font-size:18px;font-weight:700">脳のサボり打破</div>
+  </div>
+
+  <!-- push notification mock -->
+  <div style="background:rgba(30,30,36,.86);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:14px 15px;margin-bottom:20px;box-shadow:0 12px 30px rgba(0,0,0,.5)">
+    <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px">
+      <div style="width:20px;height:20px;border-radius:5px;background:var(--gold);display:flex;align-items:center;justify-content:center"><span class="disp" style="font-size:9px;font-weight:900;color:#0B0B0D">P</span></div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--dim)">PRIME</span>
+      <span style="font-size:11px;color:var(--faint);margin-left:auto">今</span>
+    </div>
+    <div style="font-size:13px;font-weight:700;margin-bottom:4px">身体が省エネモードに入っています ⚠</div>
+    <div style="font-size:12px;color:var(--dim);line-height:1.55">今日は筋トレをしたため、無意識に活動量が落ちています。目標 8,000歩まで <b style="color:var(--tx)">あと 1,880歩</b>。夕方の散歩で相殺しましょう。</div>
+  </div>
+
+  <!-- explainer -->
+  <div class="card" style="padding:15px 16px;margin-bottom:18px;display:flex;gap:11px;align-items:flex-start">
+    <div style="width:30px;height:30px;border-radius:9px;background:rgba(219,150,90,.14);display:flex;align-items:center;justify-content:center;color:var(--amber);flex:none;margin-top:1px">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.4 1 2.5h6c0-1.1.3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>
+    </div>
+    <div style="font-size:11.5px;color:var(--dim);line-height:1.65">運動した日ほど、脳が家事や歩行を無意識に減らして消費カロリーを<b style="color:var(--tx)">相殺</b>します。筋トレ日は歩数を通常より厳しく監視します。</div>
+  </div>
+
+  <!-- step progress -->
+  <div class="card" style="padding:20px 18px 18px;margin-bottom:18px;text-align:center">
+    <div class="disp" style="font-size:40px;font-weight:900;line-height:1;color:var(--amber)">6,120</div>
+    <div style="font-size:12px;color:var(--faint);margin-top:4px">/ 8,000 歩 ・ 筋トレ日目標</div>
+    <div style="height:9px;background:#26262C;border-radius:5px;margin:16px 0 6px;overflow:hidden"><div style="width:76.5%;height:100%;background:linear-gradient(90deg,var(--amber),#E7BB86);border-radius:5px"></div></div>
+    <div style="font-size:11px;color:var(--amber);font-weight:700">あと 1,880歩</div>
+  </div>
+
+  <!-- hourly activity -->
+  <div class="card" style="padding:16px 16px 14px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <span style="font-size:13px;font-weight:700">時間帯別の活動量</span>
+      <span style="font-size:11px;color:var(--red)">14時以降に低下 ↓</span>
+    </div>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;height:76px;gap:5px">
+      <div style="flex:1;height:40%;background:var(--teal);border-radius:3px"></div>
+      <div style="flex:1;height:62%;background:var(--teal);border-radius:3px"></div>
+      <div style="flex:1;height:88%;background:var(--teal);border-radius:3px"></div>
+      <div style="flex:1;height:74%;background:var(--teal);border-radius:3px"></div>
+      <div style="flex:1;height:30%;background:var(--amber);border-radius:3px"></div>
+      <div style="flex:1;height:20%;background:var(--red);border-radius:3px"></div>
+      <div style="flex:1;height:16%;background:var(--red);border-radius:3px"></div>
+      <div style="flex:1;height:22%;background:#3A3A42;border-radius:3px"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:7px;font-size:9.5px;color:var(--faint)">
+      <span style="flex:1;text-align:center">8</span><span style="flex:1;text-align:center">10</span><span style="flex:1;text-align:center">12</span><span style="flex:1;text-align:center">14</span><span style="flex:1;text-align:center">16</span><span style="flex:1;text-align:center">18</span><span style="flex:1;text-align:center">20</span><span style="flex:1;text-align:center">22</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

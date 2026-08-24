@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+    :root{
+      --bg:#0B0B0D; --surface:#151519; --surface2:#1E1E24; --line:rgba(255,255,255,.07);
+      --tx:#ECECEA; --dim:#9A9AA2; --faint:#63636B;
+      --gold:#CBA35A; --teal:#5FB0A5; --amber:#DB965A; --red:#D26A60;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+    .disp{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif}
+    a{color:var(--gold)} a:hover{color:#dcb877}
+    .screen{width:390px;min-height:900px;position:relative;
+      background:radial-gradient(130% 50% at 50% -6%, #1A1620 0%, #0B0B0D 50%);
+      padding:24px 20px 40px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+  </style>
+</helmet>
+<div class="screen">
+
+  <!-- top bar -->
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--dim)" stroke-width="1.9"><path d="M15 5l-7 7 7 7"/></svg>
+    <div style="font-size:11px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase">診断結果</div>
+  </div>
+
+  <!-- verdict -->
+  <div style="text-align:center;margin-bottom:22px">
+    <div style="font-size:12px;color:var(--dim);margin-bottom:8px">あなたが痩せない主因は</div>
+    <div class="disp" style="font-size:30px;font-weight:900;letter-spacing:.01em;line-height:1.25;background:linear-gradient(180deg,#F0D9A8,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent">
+      アナボリック<br>抵抗性タイプ
+    </div>
+    <div style="font-size:12.5px;color:var(--dim);margin-top:12px;line-height:1.7;max-width:300px;margin-left:auto;margin-right:auto">
+      40代以降、筋肉が刺激に反応しにくくなる状態。<br>「同じ努力」では筋肉が守れず、代謝が落ちています。
+    </div>
+  </div>
+
+  <!-- factor breakdown -->
+  <div style="font-size:12px;color:var(--faint);margin:0 2px 10px">落ちない要因スコア</div>
+  <div class="card" style="padding:18px 16px;margin-bottom:16px;display:flex;flex-direction:column;gap:16px">
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><span style="font-size:13px;font-weight:700">睡眠不足</span><span class="disp" style="font-size:14px;font-weight:900;color:var(--red)">82</span></div>
+      <div style="height:7px;background:#26262C;border-radius:4px"><div style="width:82%;height:100%;background:var(--red);border-radius:4px"></div></div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><span style="font-size:13px;font-weight:700">アナボリック抵抗性</span><span class="disp" style="font-size:14px;font-weight:900;color:var(--red)">76</span></div>
+      <div style="height:7px;background:#26262C;border-radius:4px"><div style="width:76%;height:100%;background:var(--red);border-radius:4px"></div></div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><span style="font-size:13px;font-weight:700">脳の省エネ (NEAT低下)</span><span class="disp" style="font-size:14px;font-weight:900;color:var(--amber)">64</span></div>
+      <div style="height:7px;background:#26262C;border-radius:4px"><div style="width:64%;height:100%;background:var(--amber);border-radius:4px"></div></div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><span style="font-size:13px;font-weight:700">たんぱく質不足</span><span class="disp" style="font-size:14px;font-weight:900;color:var(--amber)">51</span></div>
+      <div style="height:7px;background:#26262C;border-radius:4px"><div style="width:51%;height:100%;background:var(--amber);border-radius:4px"></div></div>
+    </div>
+  </div>
+
+  <!-- prescription -->
+  <div style="font-size:12px;color:var(--faint);margin:0 2px 10px">あなた専用の処方</div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px">
+    <div class="card" style="padding:14px 15px;display:flex;align-items:center;gap:12px">
+      <div style="width:34px;height:34px;border-radius:10px;background:rgba(95,176,165,.14);display:flex;align-items:center;justify-content:center;color:var(--teal);flex:none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+      </div>
+      <div style="flex:1;font-size:12.5px;line-height:1.5"><b>減量ペースを週0.5%に</b><br><span style="color:var(--dim)">睡眠が整うまで筋肉を守る</span></div>
+    </div>
+    <div class="card" style="padding:14px 15px;display:flex;align-items:center;gap:12px">
+      <div style="width:34px;height:34px;border-radius:10px;background:rgba(203,163,90,.14);display:flex;align-items:center;justify-content:center;color:var(--gold);flex:none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6.5 6.5v11M17.5 6.5v11M6.5 12h11"/></svg>
+      </div>
+      <div style="flex:1;font-size:12.5px;line-height:1.5"><b>各部位 週10〜20セット</b><br><span style="color:var(--dim)">抵抗性を刺激で押し切る</span></div>
+    </div>
+    <div class="card" style="padding:14px 15px;display:flex;align-items:center;gap:12px">
+      <div style="width:34px;height:34px;border-radius:10px;background:rgba(219,150,90,.14);display:flex;align-items:center;justify-content:center;color:var(--amber);flex:none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 4l-2 8h5l-7 8 2-8H9z"/></svg>
+      </div>
+      <div style="flex:1;font-size:12.5px;line-height:1.5"><b>筋トレ日は +2,000歩</b><br><span style="color:var(--dim)">脳の省エネを行動で相殺</span></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="background:linear-gradient(180deg,#E7CF97,var(--gold));color:#0B0B0D;text-align:center;font-family:'Zen Kaku Gothic New';font-weight:900;font-size:15px;padding:16px;border-radius:14px">
+    このプランで4週間の設計を作る
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+    :root{
+      --bg:#0B0B0D; --surface:#151519; --surface2:#1E1E24; --line:rgba(255,255,255,.07);
+      --tx:#ECECEA; --dim:#9A9AA2; --faint:#63636B;
+      --gold:#CBA35A; --teal:#5FB0A5; --amber:#DB965A; --red:#D26A60;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+    .disp{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif}
+    a{color:var(--gold)} a:hover{color:#dcb877}
+    .screen{width:390px;min-height:900px;position:relative;
+      background:radial-gradient(130% 50% at 50% -6%, #18181E 0%, #0B0B0D 50%);padding:24px 20px 40px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+  </style>
+</helmet>
+<div class="screen">
+
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--dim)" stroke-width="1.9"><path d="M15 5l-7 7 7 7"/></svg>
+    <div class="disp" style="font-size:18px;font-weight:700">ケーブルフライ</div>
+  </div>
+
+  <!-- weight & reps input -->
+  <div style="display:flex;gap:12px;margin-bottom:18px">
+    <div class="card" style="flex:1;padding:16px 14px;text-align:center">
+      <div style="font-size:11px;color:var(--faint);margin-bottom:6px">重量 (kg)</div>
+      <div class="disp" style="font-size:30px;font-weight:900;color:var(--gold)">15.0</div>
+    </div>
+    <div class="card" style="flex:1;padding:16px 14px;text-align:center">
+      <div style="font-size:11px;color:var(--faint);margin-bottom:6px">回数</div>
+      <div class="disp" style="font-size:30px;font-weight:900">12</div>
+    </div>
+  </div>
+
+  <!-- RIR slider -->
+  <div class="card" style="padding:18px 18px 20px;margin-bottom:16px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px">
+      <span style="font-size:13px;font-weight:700">RIR ・ あと何回できた？</span>
+    </div>
+    <div style="font-size:11px;color:var(--dim);margin-bottom:20px">適正ゾーンは <b style="color:var(--gold)">1〜2回</b>。限界まで追い込みすぎず、筋肉を効かせます。</div>
+
+    <!-- track -->
+    <div style="position:relative;height:44px">
+      <!-- zone highlight -->
+      <div style="position:absolute;top:17px;height:8px;left:20%;width:20%;background:rgba(203,163,90,.28);border-radius:4px"></div>
+      <div style="position:absolute;top:20px;left:0;right:0;height:3px;background:#2A2A31;border-radius:2px"></div>
+      <div style="position:absolute;top:20px;left:0;width:32%;height:3px;background:var(--gold);border-radius:2px"></div>
+      <!-- thumb at RIR 1 (~32%) -->
+      <div style="position:absolute;top:8px;left:calc(32% - 13px);width:26px;height:26px;border-radius:50%;background:var(--gold);box-shadow:0 2px 10px rgba(203,163,90,.5);border:3px solid #0B0B0D"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:11px;color:var(--faint)">
+      <span>0<br><span style="font-size:9px">限界</span></span>
+      <span style="color:var(--gold);font-weight:700">1</span>
+      <span style="color:var(--gold);font-weight:700">2</span>
+      <span>3</span>
+      <span>4+<br><span style="font-size:9px">余裕</span></span>
+    </div>
+  </div>
+
+  <!-- learned recommendation -->
+  <div class="card" style="padding:16px;margin-bottom:16px;border-color:rgba(95,176,165,.3);background:linear-gradient(180deg,rgba(95,176,165,.08),var(--surface))">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:32px;height:32px;border-radius:9px;background:rgba(95,176,165,.16);display:flex;align-items:center;justify-content:center;color:var(--teal);flex:none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div style="flex:1;font-size:12.5px;line-height:1.5">RIR履歴を学習しました。<br><span style="color:var(--dim)">次回の推奨は </span><b style="color:var(--teal)">17.5kg</b><span style="color:var(--dim)"> です</span></div>
+    </div>
+  </div>
+
+  <!-- history row -->
+  <div style="font-size:12px;color:var(--faint);margin:0 2px 10px">このセットの記録</div>
+  <div class="card" style="padding:6px 4px;margin-bottom:22px">
+    <div style="display:flex;align-items:center;padding:11px 14px;font-size:12.5px"><span style="width:52px;color:var(--faint)">Set 1</span><span style="flex:1">15kg × 12</span><span style="color:var(--gold);font-weight:700">RIR 2</span></div>
+    <div style="height:1px;background:var(--line);margin:0 14px"></div>
+    <div style="display:flex;align-items:center;padding:11px 14px;font-size:12.5px"><span style="width:52px;color:var(--faint)">Set 2</span><span style="flex:1">15kg × 12</span><span style="color:var(--gold);font-weight:700">RIR 1</span></div>
+    <div style="height:1px;background:var(--line);margin:0 14px"></div>
+    <div style="display:flex;align-items:center;padding:11px 14px;font-size:12.5px;opacity:.6"><span style="width:52px;color:var(--faint)">Set 3</span><span style="flex:1;color:var(--dim)">入力中…</span></div>
+  </div>
+
+  <div style="background:linear-gradient(180deg,#E7CF97,var(--gold));color:#0B0B0D;text-align:center;font-family:'Zen Kaku Gothic New';font-weight:900;font-size:15px;padding:16px;border-radius:14px">
+    このセットを記録
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

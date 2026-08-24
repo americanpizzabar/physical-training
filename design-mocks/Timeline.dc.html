@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+    :root{
+      --bg:#0B0B0D; --surface:#151519; --surface2:#1E1E24; --line:rgba(255,255,255,.07);
+      --tx:#ECECEA; --dim:#9A9AA2; --faint:#63636B;
+      --gold:#CBA35A; --teal:#5FB0A5; --amber:#DB965A; --red:#D26A60;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+    .disp{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif}
+    a{color:var(--gold)} a:hover{color:#dcb877}
+    .screen{width:390px;min-height:900px;position:relative;
+      background:radial-gradient(130% 50% at 50% -6%, #18181E 0%, #0B0B0D 50%);padding:24px 20px 40px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+    .tick{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+  </style>
+</helmet>
+<div class="screen">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--dim)" stroke-width="1.9"><path d="M15 5l-7 7 7 7"/></svg>
+      <div class="disp" style="font-size:18px;font-weight:700">本日のセッション</div>
+    </div>
+    <div style="font-size:12px;color:var(--gold);font-weight:700">28:14</div>
+  </div>
+
+  <!-- concurrent order banner -->
+  <div class="card" style="padding:12px 14px;margin-bottom:18px;display:flex;align-items:center;gap:10px;border-color:rgba(203,163,90,.28)">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.9"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12z"/></svg>
+    <div style="font-size:11.5px;color:var(--dim);line-height:1.5">脂肪燃焼の黄金順序 — <b style="color:var(--tx)">筋トレ → 有酸素</b> でロックされています</div>
+  </div>
+
+  <!-- STRENGTH block -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin:0 2px 12px">
+    <span class="disp" style="font-size:14px;font-weight:700;color:var(--gold)">① 筋トレ ・ 胸 / 三頭</span>
+    <span style="font-size:12px;color:var(--dim)">3 / 6 種目</span>
+  </div>
+  <div style="height:6px;background:#26262C;border-radius:3px;margin:0 2px 16px"><div style="width:50%;height:100%;background:linear-gradient(90deg,var(--gold),#E7CF97);border-radius:3px"></div></div>
+
+  <div class="card" style="padding:6px 4px;margin-bottom:20px">
+    <!-- done -->
+    <div style="display:flex;align-items:center;gap:13px;padding:12px 14px">
+      <div class="tick" style="background:var(--teal)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0B0B0D" stroke-width="2.6"><path d="M5 12l4 4 10-11"/></svg></div>
+      <div style="flex:1"><div style="font-size:13.5px;font-weight:700">ベンチプレス</div><div style="font-size:11px;color:var(--faint);margin-top:1px">62.5kg × 8,8,7 ・ RIR 1</div></div>
+    </div>
+    <div style="height:1px;background:var(--line);margin:0 14px"></div>
+    <div style="display:flex;align-items:center;gap:13px;padding:12px 14px">
+      <div class="tick" style="background:var(--teal)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0B0B0D" stroke-width="2.6"><path d="M5 12l4 4 10-11"/></svg></div>
+      <div style="flex:1"><div style="font-size:13.5px;font-weight:700">インクラインDBプレス</div><div style="font-size:11px;color:var(--faint);margin-top:1px">22kg × 10,9,9 ・ RIR 2</div></div>
+    </div>
+    <div style="height:1px;background:var(--line);margin:0 14px"></div>
+    <!-- active -->
+    <div style="display:flex;align-items:center;gap:13px;padding:14px;background:rgba(203,163,90,.07);border-radius:12px;margin:2px 4px">
+      <div class="tick" style="border:2px solid var(--gold);color:var(--gold);font-weight:800;font-size:12px" class="disp">3</div>
+      <div style="flex:1"><div style="font-size:13.5px;font-weight:700">ケーブルフライ</div><div style="font-size:11px;color:var(--gold);margin-top:1px">推奨 15kg ・ 3セット目</div></div>
+      <div style="font-size:11px;font-weight:700;color:#0B0B0D;background:var(--gold);padding:7px 13px;border-radius:9px">記録</div>
+    </div>
+    <div style="height:1px;background:var(--line);margin:0 14px"></div>
+    <!-- upcoming -->
+    <div style="display:flex;align-items:center;gap:13px;padding:12px 14px;opacity:.55">
+      <div class="tick" style="border:2px solid #3A3A42;color:var(--faint);font-weight:700;font-size:12px">4</div>
+      <div style="flex:1"><div style="font-size:13.5px;font-weight:700">トライセプスプレスダウン</div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:13px;padding:12px 14px;opacity:.55">
+      <div class="tick" style="border:2px solid #3A3A42;color:var(--faint);font-weight:700;font-size:12px">5</div>
+      <div style="flex:1"><div style="font-size:13.5px;font-weight:700">オーバーヘッドエクステンション</div></div>
+    </div>
+  </div>
+
+  <!-- CARDIO locked -->
+  <div class="card" style="padding:20px 18px;text-align:center;border-style:dashed;border-color:rgba(255,255,255,.12);background:var(--surface2)">
+    <div style="width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--faint)" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+    </div>
+    <div class="disp" style="font-size:15px;font-weight:700;color:var(--dim)">② 有酸素 ・ 25分</div>
+    <div style="font-size:11.5px;color:var(--faint);margin-top:6px;line-height:1.6">筋トレ6種目を完了すると<br>有酸素タイマーが自動で起動します</div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

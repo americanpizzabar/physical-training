@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+    :root{
+      --bg:#0B0B0D; --surface:#151519; --surface2:#1E1E24; --line:rgba(255,255,255,.07);
+      --tx:#ECECEA; --dim:#9A9AA2; --faint:#63636B;
+      --gold:#CBA35A; --teal:#5FB0A5; --amber:#DB965A; --red:#D26A60;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+    .disp{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif}
+    a{color:var(--gold)} a:hover{color:#dcb877}
+    .screen{width:390px;min-height:900px;position:relative;
+      background:radial-gradient(130% 52% at 50% -6%, #14161C 0%, #0B0B0D 52%);padding:24px 20px 40px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+  </style>
+</helmet>
+<div class="screen">
+
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--dim)" stroke-width="1.9"><path d="M15 5l-7 7 7 7"/></svg>
+    <div class="disp" style="font-size:18px;font-weight:700">筋肉保護アルゴリズム</div>
+  </div>
+
+  <!-- alert -->
+  <div class="card" style="padding:18px 16px;margin-bottom:18px;border-color:rgba(219,150,90,.4);background:linear-gradient(180deg,rgba(219,150,90,.12),var(--surface))">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:32px;height:32px;border-radius:9px;background:rgba(219,150,90,.18);display:flex;align-items:center;justify-content:center;color:var(--amber)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 4v8M12 16v.5"/><path d="M12 3l9 16H3z"/></svg>
+      </div>
+      <div class="disp" style="font-size:15px;font-weight:700">睡眠不足を3日連続で検知</div>
+    </div>
+    <div style="font-size:12px;color:var(--dim);line-height:1.7">
+      睡眠不足下の減量は、脂肪ではなく<b style="color:var(--tx)">筋肉から</b>削られます。あなたの身体を守るため、目標を自動調整しました。
+    </div>
+  </div>
+
+  <!-- 7 day sleep chart -->
+  <div class="card" style="padding:18px 16px 16px;margin-bottom:18px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+      <span style="font-size:13px;font-weight:700">睡眠時間 ・ 7日間</span>
+      <span style="font-size:11px;color:var(--faint)">基準ライン 6h</span>
+    </div>
+    <div style="position:relative;height:118px">
+      <!-- threshold line -->
+      <div style="position:absolute;left:0;right:0;top:34px;border-top:1px dashed rgba(219,150,90,.55)"></div>
+      <div style="position:absolute;right:0;top:22px;font-size:9px;color:var(--amber)">6h</div>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;height:100%;gap:8px">
+        <!-- each bar: max height 100 = ~8h; 6h line at 34px from top = value75 -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%"><div style="width:100%;height:88%;background:var(--teal);border-radius:5px 5px 0 0"></div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%"><div style="width:100%;height:80%;background:var(--teal);border-radius:5px 5px 0 0"></div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%"><div style="width:100%;height:70%;background:var(--teal);border-radius:5px 5px 0 0"></div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%"><div style="width:100%;height:62%;background:var(--amber);border-radius:5px 5px 0 0"></div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%"><div style="width:100%;height:58%;background:var(--amber);border-radius:5px 5px 0 0"></div></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%"><div style="width:100%;height:52%;background:var(--red);border-radius:5px 5px 0 0"></div></div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--faint)">
+      <span style="flex:1;text-align:center">火</span><span style="flex:1;text-align:center">水</span><span style="flex:1;text-align:center">木</span><span style="flex:1;text-align:center">金</span><span style="flex:1;text-align:center">土</span><span style="flex:1;text-align:center">日</span>
+    </div>
+  </div>
+
+  <!-- auto adjustment -->
+  <div style="font-size:12px;color:var(--faint);margin:0 2px 10px">自動調整の内容</div>
+  <div class="card" style="padding:6px 4px;margin-bottom:16px">
+    <div style="display:flex;align-items:center;gap:12px;padding:14px">
+      <div style="flex:1;font-size:13px">減量ペース</div>
+      <div style="display:flex;align-items:center;gap:9px">
+        <span style="font-size:12px;color:var(--faint);text-decoration:line-through">週1.0%</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--faint)" stroke-width="2"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        <span class="disp" style="font-size:14px;font-weight:800;color:var(--teal)">週0.5%</span>
+      </div>
+    </div>
+    <div style="height:1px;background:var(--line);margin:0 14px"></div>
+    <div style="display:flex;align-items:center;gap:12px;padding:14px">
+      <div style="flex:1;font-size:13px">本日の優先</div>
+      <div style="display:flex;align-items:center;gap:9px">
+        <span style="font-size:12px;color:var(--faint);text-decoration:line-through">有酸素</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--faint)" stroke-width="2"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        <span class="disp" style="font-size:14px;font-weight:800;color:var(--gold)">筋トレ</span>
+      </div>
+    </div>
+    <div style="height:1px;background:var(--line);margin:0 14px"></div>
+    <div style="display:flex;align-items:center;gap:12px;padding:14px">
+      <div style="flex:1;font-size:13px">たんぱく質目標</div>
+      <div style="display:flex;align-items:center;gap:9px">
+        <span style="font-size:12px;color:var(--faint);text-decoration:line-through">112g</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--faint)" stroke-width="2"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        <span class="disp" style="font-size:14px;font-weight:800;color:var(--teal)">128g</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-size:11px;color:var(--faint);text-align:center;line-height:1.7;padding:0 8px">
+    睡眠が2日連続で7時間を超えると、<br>通常の減量ペースへ自動で戻します。
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
