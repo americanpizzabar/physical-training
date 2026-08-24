@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+    :root{
+      --bg:#0B0B0D; --surface:#151519; --surface2:#1E1E24; --line:rgba(255,255,255,.07);
+      --tx:#ECECEA; --dim:#9A9AA2; --faint:#63636B;
+      --gold:#CBA35A; --teal:#5FB0A5; --amber:#DB965A; --red:#D26A60;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+    .disp{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif}
+    a{color:var(--gold)} a:hover{color:#dcb877}
+    .screen{width:390px;min-height:960px;position:relative;
+      background:radial-gradient(130% 50% at 50% -6%, #1C161A 0%, #0B0B0D 52%);padding:24px 20px 40px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+  </style>
+</helmet>
+<div class="screen">
+
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--dim)" stroke-width="1.9"><path d="M15 5l-7 7 7 7"/></svg>
+    <div class="disp" style="font-size:18px;font-weight:700">部位別 疲労管理</div>
+  </div>
+
+  <!-- body map -->
+  <div class="card" style="padding:18px 16px;margin-bottom:16px;display:flex;gap:16px;align-items:center">
+    <div style="flex:none">
+      <svg width="104" height="200" viewBox="0 0 104 200">
+        <!-- head -->
+        <circle cx="52" cy="18" r="12" fill="none" stroke="#3A3A42" stroke-width="2"/>
+        <!-- torso -->
+        <path d="M34 34 L70 34 L66 96 L38 96 Z" fill="#1E1E24" stroke="#3A3A42" stroke-width="2"/>
+        <!-- shoulders (right highlighted = viewer left) -->
+        <circle cx="32" cy="40" r="9" fill="rgba(210,106,96,.28)" stroke="var(--red)" stroke-width="2"/>
+        <circle cx="72" cy="40" r="9" fill="none" stroke="#3A3A42" stroke-width="2"/>
+        <!-- core highlighted -->
+        <rect x="40" y="60" width="24" height="30" rx="6" fill="rgba(219,150,90,.24)" stroke="var(--amber)" stroke-width="2"/>
+        <!-- arms -->
+        <path d="M30 46 L22 92" stroke="#3A3A42" stroke-width="6" stroke-linecap="round"/>
+        <path d="M74 46 L82 92" stroke="#3A3A42" stroke-width="6" stroke-linecap="round"/>
+        <!-- legs -->
+        <path d="M44 98 L40 168" stroke="#3A3A42" stroke-width="8" stroke-linecap="round"/>
+        <path d="M60 98 L64 168" stroke="#3A3A42" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px">
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span style="font-weight:700">右肩</span><span style="color:var(--red)">疲労 高</span></div>
+        <div style="height:6px;background:#26262C;border-radius:3px"><div style="width:88%;height:100%;background:var(--red);border-radius:3px"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span style="font-weight:700">体幹</span><span style="color:var(--amber)">疲労 中</span></div>
+        <div style="height:6px;background:#26262C;border-radius:3px"><div style="width:64%;height:100%;background:var(--amber);border-radius:3px"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span style="font-weight:700">胸</span><span style="color:var(--teal)">回復 済</span></div>
+        <div style="height:6px;background:#26262C;border-radius:3px"><div style="width:22%;height:100%;background:var(--teal);border-radius:3px"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span style="font-weight:700">脚</span><span style="color:var(--teal)">回復 済</span></div>
+        <div style="height:6px;background:#26262C;border-radius:3px"><div style="width:18%;height:100%;background:var(--teal);border-radius:3px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- alert -->
+  <div class="card" style="padding:15px 16px;margin-bottom:18px;border-color:rgba(219,150,90,.4);background:linear-gradient(180deg,rgba(219,150,90,.10),var(--surface));display:flex;gap:11px;align-items:flex-start">
+    <div style="width:30px;height:30px;border-radius:9px;background:rgba(219,150,90,.18);display:flex;align-items:center;justify-content:center;color:var(--amber);flex:none;margin-top:1px">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l9 16H3z"/><path d="M12 9v4M12 16v.3"/></svg>
+    </div>
+    <div style="font-size:11.5px;color:var(--dim);line-height:1.65">週末のテニス（片手バックハンド）で<b style="color:var(--tx)">右肩・体幹</b>を酷使。オーバートレーニング防止のため、明日のメニューを<b style="color:var(--tx)">安全なマシン種目</b>に自動調整しました。</div>
+  </div>
+
+  <!-- menu swap -->
+  <div style="font-size:12px;color:var(--faint);margin:0 2px 10px">明日のメニュー ・ 自動調整</div>
+  <div class="card" style="padding:6px 4px;margin-bottom:18px">
+    <div style="display:flex;align-items:center;gap:11px;padding:13px 14px">
+      <div style="flex:1;font-size:12.5px;color:var(--faint);text-decoration:line-through">ダンベルショルダープレス</div>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--faint)" stroke-width="2" style="flex:none"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      <div style="flex:1;font-size:12.5px;font-weight:700;text-align:right">マシンショルダープレス</div>
+    </div>
+    <div style="height:1px;background:var(--line);margin:0 14px"></div>
+    <div style="display:flex;align-items:center;gap:11px;padding:13px 14px">
+      <div style="flex:1;font-size:12.5px;color:var(--faint);text-decoration:line-through">バーベルロー</div>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--faint)" stroke-width="2" style="flex:none"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      <div style="flex:1;font-size:12.5px;font-weight:700;text-align:right">シーテッドマシンロー</div>
+    </div>
+    <div style="height:1px;background:var(--line);margin:0 14px"></div>
+    <div style="display:flex;align-items:center;gap:11px;padding:13px 14px">
+      <div style="flex:1;font-size:12.5px;color:var(--faint);text-decoration:line-through">アブローラー (体幹)</div>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--faint)" stroke-width="2" style="flex:none"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      <div style="flex:1;font-size:12.5px;font-weight:700;text-align:right;color:var(--teal)">本日はスキップ</div>
+    </div>
+  </div>
+
+  <div style="font-size:11px;color:var(--faint);text-align:center;line-height:1.7">
+    フリーウェイトより関節への負担が少ないマシン種目で<br>刺激を維持しつつ、酷使部位を回復させます。
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

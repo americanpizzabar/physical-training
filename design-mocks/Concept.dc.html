@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+    :root{
+      --bg:#0B0B0D; --surface:#151519; --surface2:#1E1E24; --line:rgba(255,255,255,.07);
+      --tx:#ECECEA; --dim:#9A9AA2; --faint:#63636B;
+      --gold:#CBA35A; --teal:#5FB0A5; --amber:#DB965A; --red:#D26A60;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+    .disp{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif}
+    a{color:var(--gold)} a:hover{color:#dcb877}
+    .screen{width:390px;min-height:960px;position:relative;
+      background:radial-gradient(120% 44% at 50% 0%, #1E1A22 0%, #0B0B0D 46%);padding:60px 26px 40px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+  </style>
+</helmet>
+<div class="screen">
+
+  <div class="disp" style="font-weight:900;letter-spacing:.34em;font-size:14px;color:var(--gold);text-align:center">PRIME</div>
+  <div style="font-size:11px;letter-spacing:.22em;color:var(--faint);text-align:center;margin-top:8px">40歳からの代謝設計</div>
+
+  <!-- hero statement -->
+  <div class="disp" style="font-size:29px;font-weight:900;line-height:1.5;text-align:center;margin:52px 0 18px">
+    40代からは<br><span style="color:var(--faint)">「同じ努力」</span>では<br>もう<span style="background:linear-gradient(180deg,#F0D9A8,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent">守れない。</span>
+  </div>
+  <div style="font-size:12.5px;color:var(--dim);text-align:center;line-height:1.9;margin-bottom:46px">
+    加齢で変わる身体の防衛本能を、<br>システム側でコントロールする。<br>根性ではなく、設計で結果を出す。
+  </div>
+
+  <!-- 4 pillars -->
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
+    <div class="card" style="padding:15px 16px;display:flex;align-items:center;gap:13px">
+      <div style="width:36px;height:36px;border-radius:10px;background:rgba(210,106,96,.14);display:flex;align-items:center;justify-content:center;color:var(--red);flex:none">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/></svg>
+      </div>
+      <div><div style="font-size:13.5px;font-weight:700">アナボリック抵抗性</div><div style="font-size:11px;color:var(--dim);margin-top:2px">鈍った筋肉を適正な刺激で押し切る</div></div>
+    </div>
+    <div class="card" style="padding:15px 16px;display:flex;align-items:center;gap:13px">
+      <div style="width:36px;height:36px;border-radius:10px;background:rgba(219,150,90,.14);display:flex;align-items:center;justify-content:center;color:var(--amber);flex:none">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div><div style="font-size:13.5px;font-weight:700">睡眠 × 筋肉保護</div><div style="font-size:11px;color:var(--dim);margin-top:2px">睡眠不足の日は筋肉を削らせない</div></div>
+    </div>
+    <div class="card" style="padding:15px 16px;display:flex;align-items:center;gap:13px">
+      <div style="width:36px;height:36px;border-radius:10px;background:rgba(203,163,90,.14);display:flex;align-items:center;justify-content:center;color:var(--gold);flex:none">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.4 1 2.5h6c0-1.1.3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>
+      </div>
+      <div><div style="font-size:13.5px;font-weight:700">脳の省エネを打破</div><div style="font-size:11px;color:var(--dim);margin-top:2px">無意識の活動量低下を行動で相殺</div></div>
+    </div>
+    <div class="card" style="padding:15px 16px;display:flex;align-items:center;gap:13px">
+      <div style="width:36px;height:36px;border-radius:10px;background:rgba(95,176,165,.14);display:flex;align-items:center;justify-content:center;color:var(--teal);flex:none">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 3c3 3 3 15 0 18M3 12h18"/></svg>
+      </div>
+      <div><div style="font-size:13.5px;font-weight:700">スポーツ連動</div><div style="font-size:11px;color:var(--dim);margin-top:2px">テニス・ゴルフも有酸素として設計に統合</div></div>
+    </div>
+  </div>
+
+  <div style="background:linear-gradient(180deg,#E7CF97,var(--gold));color:#0B0B0D;text-align:center;font-family:'Zen Kaku Gothic New';font-weight:900;font-size:15px;padding:17px;border-radius:14px">
+    無料で体質診断を始める
+  </div>
+  <div style="font-size:11px;color:var(--faint);text-align:center;margin-top:14px">所要2分 ・ クレジットカード不要</div>
+
+</div>
+</x-dc>
+</body>
+</html>

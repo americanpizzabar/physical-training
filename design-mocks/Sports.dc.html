@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+    :root{
+      --bg:#0B0B0D; --surface:#151519; --surface2:#1E1E24; --line:rgba(255,255,255,.07);
+      --tx:#ECECEA; --dim:#9A9AA2; --faint:#63636B;
+      --gold:#CBA35A; --teal:#5FB0A5; --amber:#DB965A; --red:#D26A60;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+    .disp{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif}
+    a{color:var(--gold)} a:hover{color:#dcb877}
+    .screen{width:390px;min-height:960px;position:relative;
+      background:radial-gradient(130% 50% at 50% -6%, #14181C 0%, #0B0B0D 52%);padding:24px 20px 40px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+    .chip{border:1px solid var(--line);border-radius:20px;padding:8px 14px;font-size:12px;color:var(--dim);display:flex;align-items:center;gap:7px}
+  </style>
+</helmet>
+<div class="screen">
+
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--dim)" stroke-width="1.9"><path d="M15 5l-7 7 7 7"/></svg>
+    <div class="disp" style="font-size:18px;font-weight:700">スポーツ連動</div>
+  </div>
+
+  <!-- weekly cardio gauge -->
+  <div class="card" style="padding:18px 18px 16px;margin-bottom:18px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+      <span style="font-size:13px;font-weight:700">今週の有酸素</span>
+      <span class="disp" style="font-size:14px;font-weight:800"><span style="color:var(--teal)">210</span><span style="font-size:11px;color:var(--faint)"> / 150〜300分</span></span>
+    </div>
+    <div style="font-size:11px;color:var(--faint);margin-bottom:14px">スポーツも活動時間として合算されます</div>
+    <!-- stacked bar -->
+    <div style="display:flex;height:12px;border-radius:6px;overflow:hidden;background:#26262C">
+      <div style="width:33%;background:var(--teal)"></div>
+      <div style="width:29%;background:var(--gold)"></div>
+      <div style="width:15%;background:var(--amber)"></div>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:12px;font-size:11px;color:var(--dim);flex-wrap:wrap">
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:2px;background:var(--teal)"></span>ランニング 70分</span>
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:2px;background:var(--gold)"></span>テニス 90分</span>
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:2px;background:var(--amber)"></span>ゴルフ 50分</span>
+    </div>
+  </div>
+
+  <!-- add sport chips -->
+  <div style="font-size:12px;color:var(--faint);margin:0 2px 10px">スポーツを記録</div>
+  <div style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px">
+    <div class="chip" style="border-color:rgba(203,163,90,.5);color:var(--gold)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M5 5c4 3 5 11 2 14M19 5c-4 3-5 11-2 14"/></svg>テニス</div>
+    <div class="chip">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="3"/><path d="M12 10v7M12 17l6 4M9 21l3-4"/></svg>ゴルフ</div>
+    <div class="chip">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12c5-2 13-2 18 0M12 3c-3 4-3 14 0 18"/></svg>バレー</div>
+    <div class="chip">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 4l-2 8h5l-7 8 2-8H9z"/></svg>ランニング</div>
+    <div class="chip">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 14c3 2 5-2 8 0s5 2 8 0M3 18c3 2 5-2 8 0s5 2 8 0"/><circle cx="16" cy="7" r="2"/></svg>水泳</div>
+  </div>
+
+  <!-- this week log -->
+  <div style="font-size:12px;color:var(--faint);margin:0 2px 10px">今週の記録</div>
+  <div class="card" style="padding:6px 4px;margin-bottom:18px">
+    <div style="display:flex;align-items:center;gap:13px;padding:13px 14px">
+      <div style="width:38px;height:38px;border-radius:11px;background:rgba(203,163,90,.14);display:flex;align-items:center;justify-content:center;color:var(--gold);flex:none">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M5 5c4 3 5 11 2 14M19 5c-4 3-5 11-2 14"/></svg>
+      </div>
+      <div style="flex:1"><div style="font-size:13.5px;font-weight:700">テニス ・ 試合</div><div style="font-size:11px;color:var(--faint);margin-top:2px">日 ・ 90分 ・ 右肩/体幹 高負荷</div></div>
+      <span style="font-size:10.5px;color:var(--teal);border:1px solid rgba(95,176,165,.4);padding:4px 8px;border-radius:7px">有酸素+90</span>
+    </div>
+    <div style="height:1px;background:var(--line);margin:0 14px"></div>
+    <div style="display:flex;align-items:center;gap:13px;padding:13px 14px">
+      <div style="width:38px;height:38px;border-radius:11px;background:rgba(219,150,90,.14);display:flex;align-items:center;justify-content:center;color:var(--amber);flex:none">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="3"/><path d="M12 10v7M12 17l6 4M9 21l3-4"/></svg>
+      </div>
+      <div style="flex:1"><div style="font-size:13.5px;font-weight:700">ゴルフ ・ ラウンド</div><div style="font-size:11px;color:var(--faint);margin-top:2px">土 ・ 50分換算 ・ 回旋系</div></div>
+      <span style="font-size:10.5px;color:var(--teal);border:1px solid rgba(95,176,165,.4);padding:4px 8px;border-radius:7px">有酸素+50</span>
+    </div>
+  </div>
+
+  <div class="card" style="padding:14px 15px;display:flex;gap:11px;align-items:flex-start;border-color:rgba(203,163,90,.28)">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16v.3"/></svg>
+    <div style="font-size:11.5px;color:var(--dim);line-height:1.65">記録したスポーツの<b style="color:var(--tx)">酷使部位</b>は、翌日の筋トレメニューの疲労管理に自動で反映されます。</div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
