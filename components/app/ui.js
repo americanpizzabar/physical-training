@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export function Card({ children, style, className = "", ...rest }) {
   return (
     <div className={"acard " + className} style={{ padding: 16, ...style }} {...rest}>
@@ -46,12 +48,46 @@ export function Ring({ value, max, size = 108, stroke = 9, color = "var(--teal)"
   );
 }
 
-export function Stepper({ value, onChange, step = 1, min = 0, max = Infinity, fmt = (v) => v }) {
+// Editable stepper: tap the number to type directly, or use − / +.
+export function Stepper({ value, onChange, step = 1, min = 0, max = Infinity, decimals = 0, unit }) {
+  const [text, setText] = useState("");
+  const [editing, setEditing] = useState(false);
+
+  useEffect(() => {
+    if (!editing) setText(decimals ? Number(value).toFixed(decimals) : String(value));
+  }, [value, decimals, editing]);
+
+  const clamp = (v) => Math.max(min, Math.min(max, v));
+  const round = (v) => (decimals ? +v.toFixed(decimals) : Math.round(v));
+
+  const commit = () => {
+    setEditing(false);
+    const v = parseFloat(text);
+    if (isNaN(v)) {
+      setText(decimals ? Number(value).toFixed(decimals) : String(value));
+      return;
+    }
+    onChange(clamp(round(v)));
+  };
+
+  const bump = (dir) => onChange(clamp(round(value + dir * step)));
+
   return (
     <div className="stepper">
-      <button type="button" onClick={() => onChange(Math.max(min, +(value - step).toFixed(2)))} aria-label="減らす">−</button>
-      <div className="val">{fmt(value)}</div>
-      <button type="button" onClick={() => onChange(Math.min(max, +(value + step).toFixed(2)))} aria-label="増やす">+</button>
+      <button type="button" onClick={() => bump(-1)} aria-label="減らす">−</button>
+      <input
+        className="val"
+        type="text"
+        inputMode="decimal"
+        value={text}
+        onFocus={(e) => { setEditing(true); e.target.select(); }}
+        onChange={(e) => setText(e.target.value.replace(/[^0-9.]/g, ""))}
+        onBlur={commit}
+        onKeyDown={(e) => { if (e.key === "Enter") e.currentTarget.blur(); }}
+        aria-label="数値を入力"
+      />
+      {unit ? <span className="unit">{unit}</span> : null}
+      <button type="button" onClick={() => bump(1)} aria-label="増やす">+</button>
     </div>
   );
 }

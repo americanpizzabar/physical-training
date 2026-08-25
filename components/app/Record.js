@@ -33,7 +33,7 @@ export default function Record() {
           <div style={{ flex: 1, fontSize: 13 }}>昨夜の睡眠時間</div>
           <div className="disp" style={{ fontWeight: 900, fontSize: 18 }}>{sleep.toFixed(1)}<span style={{ fontSize: 11, color: "var(--faint)" }}> h</span></div>
         </div>
-        <Stepper value={sleep} onChange={setSleep} step={0.5} min={0} max={14} fmt={(v) => v.toFixed(1)} />
+        <Stepper value={sleep} onChange={setSleep} step={0.5} min={0} max={14} decimals={1} unit="時間" />
         <button className="btn btn-primary" style={{ marginTop: 12 }} onClick={() => actions.logSleep(sleep)}>
           {sleepToday != null ? "睡眠を更新" : "睡眠を記録"}
         </button>
@@ -72,12 +72,13 @@ export default function Record() {
           </div>
         </div>
         <Bar value={neat.steps} max={neat.target} color={neat.strict ? "var(--amber)" : "var(--teal)"} height={8} />
-        <div style={{ display: "flex", gap: 8, marginTop: 14 }}>
+        <div style={{ fontSize: 11, color: "var(--faint)", margin: "14px 0 6px", textAlign: "center" }}>歩数を直接入力</div>
+        <Stepper value={neat.steps} onChange={(v) => actions.logSteps(v)} step={500} min={0} max={60000} unit="歩" />
+        <div style={{ display: "flex", gap: 8, marginTop: 10 }}>
           {[1000, 2000, 5000].map((n) => (
             <button key={n} className="btn btn-ghost2" style={{ flex: 1, padding: 11 }} onClick={() => actions.addSteps(n)}>+{n.toLocaleString()}</button>
           ))}
         </div>
-        <button className="btn" style={{ width: "100%", marginTop: 8, background: "none", color: "var(--faint)", fontSize: 12, padding: 6 }} onClick={() => actions.logSteps(0)}>リセット</button>
       </Card>
 
       {/* SPORTS */}
@@ -91,7 +92,7 @@ export default function Record() {
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 11, color: "var(--faint)", marginBottom: 6, textAlign: "center" }}>時間 (分)</div>
-            <Stepper value={sportMin} onChange={setSportMin} step={15} min={15} />
+            <Stepper value={sportMin} onChange={setSportMin} step={15} min={15} unit="分" />
           </div>
         </div>
         <div style={{ fontSize: 11, color: "var(--faint)", marginTop: 10, display: "flex", alignItems: "center", gap: 6 }}>

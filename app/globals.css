@@ -122,9 +122,18 @@ a{color:inherit;text-decoration:none}
 .opt.on{border-color:rgba(203,163,90,.6);background:rgba(203,163,90,.1);color:var(--gold);font-weight:700}
 
 .stepper{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
-.stepper button{width:46px;height:46px;background:var(--surface2);border:none;color:var(--tx);font-size:20px;cursor:pointer}
+.stepper button{width:52px;height:52px;background:var(--surface2);border:none;color:var(--tx);font-size:24px;cursor:pointer;flex:none;user-select:none}
 .stepper button:active{background:#2a2a30}
 .stepper .val{flex:1;text-align:center;font-family:'Zen Kaku Gothic New';font-weight:900;font-size:20px}
+.stepper input.val{min-width:0;width:100%;background:transparent;border:none;color:var(--tx);outline:none;-moz-appearance:textfield;padding:0}
+.stepper input.val:focus{background:rgba(203,163,90,.06)}
+.stepper input.val::-webkit-outer-spin-button,.stepper input.val::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.stepper .unit{padding:0 12px;color:var(--faint);font-size:13px;flex:none}
+.iconbtn{background:none;border:none;color:var(--faint);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px}
+.iconbtn:hover{background:var(--surface2);color:var(--red)}
+.filtertab{display:flex;gap:6px;margin-bottom:14px}
+.filtertab button{flex:1;padding:9px 0;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--dim);font-family:inherit;font-size:12.5px;cursor:pointer}
+.filtertab button.on{border-color:rgba(203,163,90,.55);background:rgba(203,163,90,.1);color:var(--gold);font-weight:700}
 
 .range{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:#26262C;outline:none}
 .range::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--gold);border:3px solid #0B0B0D;box-shadow:0 2px 8px rgba(203,163,90,.5);cursor:pointer}
