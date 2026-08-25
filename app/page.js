@@ -229,7 +229,7 @@ export default function Home() {
             睡眠・活動量・栄養・ストレスから「落ちない要因」をスコア化し、あなた専用の4週間プランを設計します。
           </p>
           <Link href="/app" className="btn-gold" style={{ fontSize: 15, padding: "15px 28px" }}>
-            アプリのプロトタイプを試す
+            アプリを始める（無料診断）
           </Link>
         </div>
       </section>
